@@ -1,0 +1,49 @@
+query RunInput {
+  cart {
+    lines {
+      quantity
+      merchandise {
+        ... on ProductVariant {
+          id
+          product {
+            id
+            handle
+            title
+            restricted_countries: metafield(
+              namespace: "b2b"
+              key: "restricted_countries"
+            ) {
+              value
+            }
+            restricted_states: metafield(
+              namespace: "b2b"
+              key: "restricted_states"
+            ) {
+              value
+            }
+            shipping_blocked: metafield(
+              namespace: "b2b"
+              key: "shipping_blocked"
+            ) {
+              value
+            }
+          }
+        }
+      }
+    }
+    deliveryGroups {
+      deliveryAddress {
+        countryCode
+        provinceCode
+      }
+    }
+    buyerIdentity {
+      customer {
+        numberOfOrders
+        isB2B: hasTags(tags: "b2b") {
+          hasTag
+        }
+      }
+    }
+  }
+}
