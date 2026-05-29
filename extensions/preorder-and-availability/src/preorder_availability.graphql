@@ -1,0 +1,25 @@
+query CartValidationsGenerateRunInput {
+  cart {
+    lines {
+      id
+      quantity
+      merchandise{
+        __typename
+        ... on ProductVariant {
+          id 
+          title
+          product {
+            id
+            title
+            availableFrom:metafield(namespace:"preorder",key:"available_from"){
+              value
+            }
+            availableUntil:metafield(namespace:"preorder",key:"available_until"){
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+}

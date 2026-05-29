@@ -1,0 +1,42 @@
+{
+  "payload": {
+    "export": "preorder-availability",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "id": "gid://shopify/CartLine/1",
+            "quantity": 1,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "id": "gid://shopify/ProductVariant/1",
+              "title": "Expired Product",
+              "product": {
+                "id": "gid://shopify/Product/1",
+                "title": "Expired Product",
+                "availableUntil": {
+                  "value": "1960-01-01T00:00:00Z"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "validationAdd": {
+            "errors": [
+              {
+                "message": "\"Expired Product\" is no longer available. It was available until 01/01/1960, 12:00:00 AM.",
+                "target": "cart"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

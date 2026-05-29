@@ -1,0 +1,42 @@
+{
+  "payload": {
+    "export": "preorder-availability",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "id": "gid://shopify/CartLine/1",
+            "quantity": 1,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "id": "gid://shopify/ProductVariant/1",
+              "title": "Upcoming Product",
+              "product": {
+                "id": "gid://shopify/Product/1",
+                "title": "Upcoming Product",
+                "availableFrom": {
+                  "value": "2099-12-31T23:59:59Z"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "validationAdd": {
+            "errors": [
+              {
+                "message": "\"Upcoming Product\" is not available yet. It launches on 12/31/2099, 11:59:59 PM.",
+                "target": "cart"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

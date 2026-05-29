@@ -1,0 +1,42 @@
+{
+  "payload": {
+    "export": "preorder-availability",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "id": "gid://shopify/CartLine/1",
+            "quantity": 1,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "id": "gid://shopify/ProductVariant/1",
+              "title": "Bad Config Product",
+              "product": {
+                "id": "gid://shopify/Product/1",
+                "title": "Bad Config Product",
+                "availableFrom": {
+                  "value": "not-a-valid-date"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "validationAdd": {
+            "errors": [
+              {
+                "message": "\"Bad Config Product\" has an invalid availability date configured. Please contact support.",
+                "target": "cart"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

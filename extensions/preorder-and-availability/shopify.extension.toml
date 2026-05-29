@@ -2,15 +2,15 @@ api_version = "2026-04"
 
 [[extensions]]
 name = "t:name"
-handle = "cart-checkout-validation"
+handle = "preorder-and-availability"
 type = "function"
-uid = "9beb9559-a34a-eca2-aa94-2cf3baa77d52afcba76e"
+uid = "5b63fd93-f6b4-56e9-f199-0e6ccef8429e8a839959"
 description = "t:description"
 
   [[extensions.targeting]]
   target = "cart.validations.generate.run"
-  input_query = "src/cart_validations_generate_run.graphql"
-  export = "cart-validations-generate-run"
+  input_query = "src/preorder_availability.graphql"
+  export = "preorder-availability"
 
   [extensions.build]
   command = ""

@@ -1,0 +1,39 @@
+{
+  "payload": {
+    "export": "preorder-availability",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "id": "gid://shopify/CartLine/1",
+            "quantity": 15,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "id": "gid://shopify/ProductVariant/1",
+              "title": "Bulk Product",
+              "product": {
+                "id": "gid://shopify/Product/1",
+                "title": "Bulk Product"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "validationAdd": {
+            "errors": [
+              {
+                "message": "You cannot order more than 10 of the same item.",
+                "target": "cart"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
